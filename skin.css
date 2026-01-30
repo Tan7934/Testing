@@ -1,0 +1,33 @@
+body {
+    background-color: #fce4ec; /* 柔和的粉色背景 */
+    font-family: 'Georgia', serif; /* 经典的字体 */
+    color: #4a148c; /* 深紫色文字 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+#letter-container {
+    max-width: 800px;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.8); /* 半透明白色卡片 */
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    white-space: pre-wrap; /* 保持换行和空格 */
+    line-height: 1.8;
+    font-size: 1.2em;
+}
+
+#letter-output {
+    min-height: 200px; /* 确保打字时不会抖动 */
+    border-right: 3px solid #e91e63; /* 模拟光标 */
+    animation: blink-caret 0.75s step-end infinite;
+}
+
+/* 光标闪烁动画 */
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #e91e63; }
+}
