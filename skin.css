@@ -77,15 +77,31 @@ body {
 
 }
 
-#no-btn {
-    padding: 10px 20px;
-    background-color: #ccc;
-    color: #666;
+#accept-btn {
+    background-color: #ff4d6d; /* 浪漫的粉红色 */
+    color: white;
     border: none;
+    padding: 12px 25px;
+    font-size: 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-right: 15px;
+    box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
+    transition: transform 0.2s;
+}
+
+#accept-btn:hover {
+    transform: scale(1.1); /* 鼠标悬停时轻微放大 */
+}
+
+#no-btn {
+    background-color: #f0f0f0;
+    color: #999;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
-    transition: all 0.1s ease; /* 让它跑起来有丝滑感 */
-    z-index: 999;
 }
 
 #start-btn, #no-btn {

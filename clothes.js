@@ -21,18 +21,16 @@ function createHeart() {
 function moveButton() {
     var noBtn = document.getElementById('no-btn');
     if (noBtn) {
-        // 计算随机坐标，保持在窗口范围内
         var x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
         var y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
-        
-        noBtn.style.position = 'fixed'; // 变成绝对定位才能跑
+        noBtn.style.position = 'fixed'; 
         noBtn.style.left = x + 'px';
         noBtn.style.top = y + 'px';
     }
 }
 
 // 3. 情书内容与设置
-var loveLetter = "你好,很抱歉是以这种方法，但是请问你愿意在2月14号和我出去吗？";
+var loveLetter = "你好，发这段代码给你是想认真地问一下：2月14号那天，你愿意和我一起出去吗？希望能收到你的回复，期待你的答案。";
 var typingSpeed = 150;
 
 // 4. 打字机函数
@@ -44,18 +42,31 @@ function typeWriter(text, i, element, speed) {
         }, speed);
     } else {
         // --- 打字结束后的惊喜 ---
-        setInterval(createHeart, 300); // 撒花
+        setInterval(createHeart, 300); 
 
         var photo = document.getElementById('cat-photo');
-        if (photo) { photo.style.display = 'block'; } // 现照片
+        if (photo) { photo.style.display = 'block'; }
+
+        // 显示包含两个按钮的区域
+        var actionArea = document.getElementById('action-area');
+        if (actionArea) {
+            actionArea.style.display = 'block';
+        }
 
         var noBtn = document.getElementById('no-btn');
         if (noBtn) {
-            noBtn.style.display = 'inline-block'; // 现拒绝按钮
-            noBtn.onmouseover = moveButton; // 绑定逃跑事件
+            noBtn.onmouseover = moveButton; 
+        }
+
+        var acceptBtn = document.getElementById('accept-btn');
+        if (acceptBtn) {
+            acceptBtn.onclick = function() {
+                alert("太好了！那我们2月14号见，不见不散！✨");
+                setInterval(createHeart, 100); 
+            };
         }
         console.log("打字完成，效果开启！");
-    }
+    } // 修正点：确保这个大括号对应 else 的结束
 }
 
 // 5. 核心启动逻辑
@@ -65,9 +76,8 @@ window.onload = function () {
 
     if (btn) {
         btn.onclick = function () {
-            btn.style.display = 'none'; // 藏按钮
+            btn.style.display = 'none'; 
 
-            // 播放音乐
             try {
                 var audio = new Audio('happy-bday.mp3'); 
                 audio.loop = true;
@@ -76,7 +86,6 @@ window.onload = function () {
                 console.log("音频出错:", err);
             }
 
-            // 启动打字机
             if (outputElement) {
                 typeWriter(loveLetter, 0, outputElement, typingSpeed);
             }
