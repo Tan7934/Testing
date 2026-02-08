@@ -30,6 +30,10 @@ body {
     min-height: 200px; /* 确保打字时不会抖动 */
     border-right: 3px solid #e91e63; /* 模拟光标 */
     animation: blink-caret 0.75s step-end infinite;
+    font-size: 24px ;
+    line-height: 1.6;
+    color: #333;
+    font-weight: bold;
 }
 
 /* 光标闪烁动画 */
@@ -82,4 +86,15 @@ body {
     cursor: pointer;
     transition: all 0.1s ease; /* 让它跑起来有丝滑感 */
     z-index: 999;
+}
+
+#start-btn, #no-btn {
+    font-size: 18px;     /* 按钮里的字号 */
+    padding: 12px 24px;  /* 按钮的内边距，字大了按钮也要撑大点才好看 */
+}
+
+@media (max-width: 600px) {
+    #letter-output {
+        font-size: 18px;  /* 手机端稍微小一点点，防止溢出屏幕 */
+    }
 }
